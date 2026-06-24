@@ -6,7 +6,7 @@ import numpy as np
 initial_conditions = {}
 
 with open('initial_conditions.txt', 'r') as file:
-    lines = file.read().splitlines()
+    lines = file.readlines().strip().splitlines()
     #mstar, mbh1, mbh2, aout, eout, ain, ein = [int(i) for i in line]
     #print(mstar, mbh1, mbh2, aout, eout, ain, ein)
 
