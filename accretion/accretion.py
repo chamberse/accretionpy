@@ -36,11 +36,11 @@ print(rmin)
 aapo = ain * (1 + ein)
 
 if aapo > rmin:
-    print(f"{aapo:.2f} is greater than {rmin:e}")
+    print(f"{aapo:.2f} is greater than {rmin:.2f}")
     print("Ballistic accretion will occur in this system.")
 
 if rmin > aapo:
-    print(f"{aapo:.2f} is less than {rmin:e}")
+    print(f"{aapo:.2f} is less than {rmin:.2f}")
     print("A circumbinary disk will form in this system.")
 else:
     print("Error")
