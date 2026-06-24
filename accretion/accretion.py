@@ -3,8 +3,6 @@
 
 import numpy as np
 
-initial_conditions = {}
-
 with open('initial_conditions.txt', 'r') as file:
     variables = [int(line.strip()) for line in file if line.strip()]
     #mstar, mbh1, mbh2, aout, eout, ain, ein = [int(i) for i in line]
@@ -28,8 +26,11 @@ ein = variables[6]
 qout = mstar / (mbh1 + mbh2)
 
 print(qout)
+if qout < 1:
+    rmin = 0.425 * aout * (1 - eout)*((qout)*(1+qout))
 
-rmin = 0.425 * aout * (1 - eout)*((1/qout)*(1+1/qout))
+if qout <= 1:
+    rmin = 0.425 * aout * (1 - eout)*((1/qout)*(1+1/qout))
 
 aapo = ain * (1 + ein)
 
