@@ -50,7 +50,7 @@ abin = acav / 1.68
 print(abin)
 
 if abin != aapo:
-    print(f"binary sparations not equal: {abin:.2f, aapo}")
+    print(f"binary sparations not equal: {abin:.2f} {aapo}")
 
 
 
