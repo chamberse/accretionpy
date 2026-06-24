@@ -15,3 +15,12 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+   accretion.rst 
+
+Indices and Tables
+===================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
