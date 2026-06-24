@@ -34,11 +34,11 @@ rmin = 0.425 * aout * (1 - eout)*((1/qout)*(1+1/qout))
 aapo = ain * (1 + ein)
 
 if aapo > rmin:
-    print(f"{aapo:e} is greater than {rmin:e}")
+    print(f"{aapo:.2f} is greater than {rmin:e}")
     print("Ballistic accretion will occur in this system.")
 
 if rmin > aapo:
-    print(f"{aapo:e} is less than {rmin:e}")
+    print(f"{aapo:.2f} is less than {rmin:e}")
     print("A circumbinary disk will form in this system.")
 else:
     print("Error")
@@ -53,7 +53,7 @@ abin = acav / 1.68
 print(abin)
 
 if abin != aapo:
-    print(f"binary sparations not equal: {abin:.2f} {aapo}")
+    print(f"binary sparations not equal: {abin:.2f} Rsun and {aapo} Rsun")
 
 
 
