@@ -1,13 +1,18 @@
 [build system]
 requires = [
-
+    "setuptools",
+    "numpy",
+    "cython",
+    "wheel"
 ]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "accretionpy"
 dynamic = ["version"]
 dependencies = [
-
+    "numpy",
+    "matplotlib",
 ]
 
 [tool.setuptools.dynamic]
