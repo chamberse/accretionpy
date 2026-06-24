@@ -34,5 +34,5 @@ else:
     print("Error")
 
 # eventually add plot with projected accretion path
-# use more robust calculations with modules
+# use more robust calculations with modules and functions
 
