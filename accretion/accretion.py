@@ -5,7 +5,7 @@ import numpy as np
 
 with open('initial_conditions.txt', 'r') as file:
     mstar, mbh1, mbh2, aout, eout, ain, ein = file.read().splitlines()
-    print(mstar, mbh1, mbh2, aout, eout, ain, ein)
+    #print(mstar, mbh1, mbh2, aout, eout, ain, ein)
 
 mstar = int(mstar)
 mbh1 = int(mbh1)
@@ -30,15 +30,6 @@ aapo = ain * (1 + ein)
 
 print(aapo)
 
-acirc = ((0.5 - 0.0986)*(np.log(qout)))**4*(1+qout)
-print(acirc)
-acav = 1.6*acirc
-print(acav)
-#since acav / abin = 1.68, solve for abin
-
-abin = acav / 1.68
-print(abin)
-
 if aapo > rmin:
     print(f"{aapo:e} is greater than {rmin:e}")
     print("Ballistic accretion will occur in this system.")
@@ -49,8 +40,17 @@ if rmin > aapo:
 else:
     print("Error")
 
+acirc = (((0.5 - 0.0986)*(np.log(qout)))**4)*(1+qout)
+print(acirc)
+acav = 1.6*acirc
+print(acav)
+#since acav / abin = 1.68, solve for abin
+
+abin = acav / 1.68
+print(abin)
+
 if abin != aapo:
-    print(f"binary sparations not equal: {abin, aapo}")
+    print(f"binary sparations not equal: {abin:.2f, aapo}")
 
 
 
