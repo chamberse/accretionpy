@@ -6,17 +6,17 @@ import numpy as np
 initial_conditions = {}
 
 with open('initial_conditions.txt', 'r') as file:
-    lines = file.readlines().strip().splitlines()
+    variables = [int(line.strip()) for line in file if line.strip()]
     #mstar, mbh1, mbh2, aout, eout, ain, ein = [int(i) for i in line]
     #print(mstar, mbh1, mbh2, aout, eout, ain, ein)
 
-mstar = int(lines[0])
-mbh1 = int(lines[1])
-mbh2 = int(lines[2])
-aout = int(lines[3])
-eout = int(lines[4])
-ain = int(lines[5])
-ein = int(lines[6])
+mstar = variables[0]
+mbh1 = variables[1]
+mbh2 = variables[2]
+aout = variables[3]
+eout = variables[4]
+ain = variables[5]
+ein = variables[6]
 
 #unit conversions
 #mstar = mstari * 1.989*10**30
