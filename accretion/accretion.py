@@ -43,7 +43,7 @@ if rmin > aapo:
 else:
     print("Error")
 
-acirc = (((0.5 - 0.0986)*(np.log(qout)))**4)*(1+qout)
+acirc = (aout*(0.5 - 0.0986*np.log(qout))**4)*(1+qout)
 print(acirc)
 acav = 1.6*acirc
 print(acav)
