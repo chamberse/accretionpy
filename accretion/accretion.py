@@ -32,6 +32,8 @@ if qout < 1:
 if qout <= 1:
     rmin = 0.425 * aout * (1 - eout)*((1/qout)*(1+1/qout))
 
+print(rmin)
+
 aapo = ain * (1 + ein)
 
 if aapo > rmin:
