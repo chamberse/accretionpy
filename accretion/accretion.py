@@ -4,7 +4,7 @@
 import numpy as np
 
 with open('initial_conditions.txt', 'r') as file:
-    mstar, mbh1, mbh2, aout, eout, ain, ein = file.readline().strip().split()
+    mstar, mbh1, mbh2, aout, eout, ain, ein = int(file.readline().strip().split())
     #print(mstar, mbh1, mbh2, aout, eout, ain, ein)
 
 #mstar = int(mstar)
