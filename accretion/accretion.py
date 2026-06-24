@@ -50,7 +50,7 @@ else:
     print("Error")
 
 if abin != aapo:
-    print(f"binary sparations not equal: {abin:2, aapo}")
+    print(f"binary sparations not equal: {abin, aapo}")
 
 
 
