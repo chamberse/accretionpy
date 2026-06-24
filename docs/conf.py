@@ -21,7 +21,7 @@ root_doc = 'index'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
+    'sphinx.ext.napoleon'
 ]
 
 templates_path = ['_templates']

@@ -1,14 +1,11 @@
 """this code uses user input and Eq 1 from Kummer (2025) to determine what
  kind of BBH accretion will occur in a given system."""
 
+import numpy as np
 
-mstar = float(input("Enter the mass of the star (in Msun): ")) #convert to kg later
-mbh1 = float(input("Enter the mass of BH 1 (in Msun): ")) #convert to kg later
-mbh2 = float(input("Enter the mass of BH 2 (in Msun): ")) #convert to kg later
-aout = float(input("Enter distance between star and COM of BBH (in Rsun): ")) #convert to meters later
-eout = float(input("Enter the eccentricity of the BBH and star orbit: "))
-ain = float(input("Enter the distance between the BHs (in Rsun):" )) #convert to meters later
-ein = float(input("Enter the eccentricity of the BBH orbit: "))
+
+with open('initial_conditions.txt', 'r') as file:
+    mstar, mbh1, mbh2, aout, eout, ain, ein = file.read().splitlines()
 
 qout = mstar / (mbh1 + mbh2)
 
