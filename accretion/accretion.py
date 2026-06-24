@@ -28,8 +28,7 @@ qout = mstar / (mbh1 + mbh2)
 print(qout)
 if qout < 1:
     rmin = 0.425 * aout * (1 - eout)*((qout)*(1+qout))
-
-if qout <= 1:
+else:
     rmin = 0.425 * aout * (1 - eout)*((1/qout)*(1+1/qout))
 
 print(rmin)
