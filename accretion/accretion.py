@@ -5,7 +5,7 @@ import numpy as np
 
 with open('initial_conditions.txt', 'r') as file:
     mstar, mbh1, mbh2, aout, eout, ain, ein = file.read().splitlines()
-    #print(mstar, mbh1, mbh2, aout, eout, ain, ein)
+    print(mstar, mbh1, mbh2, aout, eout, ain, ein)
 
 mstar = int(mstar)
 mbh1 = int(mbh1)
@@ -30,7 +30,7 @@ aapo = ain * (1 + ein)
 
 print(aapo)
 
-acirc = (0.5 - 0.0986*np.log(qout))**4*(1+qout)
+acirc = ((0.5 - 0.0986)*(np.log(qout)))**4*(1+qout)
 print(acirc)
 acav = 1.6*acirc
 print(acav)
@@ -50,7 +50,7 @@ else:
     print("Error")
 
 if abin != aapo:
-    print(f"binary sparations not equal: {abin, aapo}")
+    print(f"binary sparations not equal: {abin:2, aapo}")
 
 
 
