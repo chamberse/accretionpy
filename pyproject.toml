@@ -1,0 +1,17 @@
+[build system]
+requires = [
+
+]
+
+[project]
+name = "accretionpy"
+dynamic = ["version"]
+dependencies = [
+
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "accretionpy.__version__"}
+
+[tool.setuptools.packages]
+find = {}
