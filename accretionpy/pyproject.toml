@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [tool.setuptools.dynamic]
-version = {attr = "accretionpy.__version__"}
+version = {file = "accretionpy/__init__.py"}
 
 [tool.setuptools.packages]
 find = {}
