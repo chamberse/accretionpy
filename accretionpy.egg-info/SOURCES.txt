@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+accretionpy/__init__.py
+accretionpy/accretion.py
+accretionpy.egg-info/PKG-INFO
+accretionpy.egg-info/SOURCES.txt
+accretionpy.egg-info/dependency_links.txt
+accretionpy.egg-info/requires.txt
+accretionpy.egg-info/top_level.txt
+tests/test_extreme_ecc.py
+tests/test_input_formats.py
+tests/test_q_values.py
