@@ -8,6 +8,6 @@
 Package that allows users to determine if accretion onto a BBH 
 will be ballistic accretion (common envelope type) or form a circumbinary disk. 
 
-Based on Kummer et al. 2025 (link)
+Based on Kummer et al. 2025 (https://www.aanda.org/articles/aa/full_html/2025/01/aa52108-24/aa52108-24.html)
 
 Use this program to determine the type of accretion that will occur based on initial conditions given by the user.
