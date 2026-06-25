@@ -43,18 +43,18 @@ if rmin > aapo:
     print(f"{aapo:.2f} is less than {rmin:.2f}")
     print("A circumbinary disk will form in this system.")
 
-acirc = (aout*(0.5 - 0.0986*np.log(qout))**4)*(1+qout)
-print(acirc)
-acav = 1.6*acirc
-print(acav)
-#since acav / abin = 1.68, solve for abin
-
-abin = acav / 1.68
-print(abin)
-
-if abin != rmin:
-    print(f"binary sparations not equal: {abin:.2f} Rsun and {rmin} Rsun")
-
+#acirc = (aout*(0.5 - 0.0986*np.log(qout))**4)*(1+qout)
+#print(acirc)
+#acav = 1.6*acirc
+#print(acav)
+##since acav / abin = 1.68, solve for abin
+#
+#abin = acav / 1.68
+#print(abin)
+#
+#if abin != rmin:
+#    print(f"binary sparations not equal: {abin:.2f} Rsun and {rmin} Rsun")
+#
 
 
 
