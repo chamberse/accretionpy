@@ -1,0 +1,5 @@
+what to test for accretionpy
+
+1. extreme eccentricities
+2. qout > 1 and > 1 and the respective equations
+3. ensure that different types of input formats are supported
