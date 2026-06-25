@@ -1,4 +1,7 @@
 # accretionpy
+
+ DOI: 10.5281/zenodo.20870915
+
 Package that allows users to determine if accretion onto a BBH 
 will be ballistic accretion (common envelope type) or form a circumbinary disk. 
 
