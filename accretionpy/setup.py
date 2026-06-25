@@ -8,8 +8,6 @@ def get_extensions():
     extensions = cythonize(
         [
             Extension(
-                "accretionpy.",
-                ["orbitize/_kepler.pyx"],
                 include_dirs=[numpy.get_include()],
             )
         ]
