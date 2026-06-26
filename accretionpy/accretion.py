@@ -13,36 +13,71 @@ the mass stream can approach the accreting binary.
 """
 
 import numpy as np
+import matplotlib.pyplot as plt
+from ipywidgets import interact
 
-with open('initial_conditions.txt', 'r') as file:
-    variables = [int(line.strip()) for line in file if line.strip()]
-    #mstar, mbh1, mbh2, aout, eout, ain, ein = [int(i) for i in line]
-    #print(mstar, mbh1, mbh2, aout, eout, ain, ein)
+def read_file():    
+    """
+    Docstring here
+    """
+    initial_conditions = {}
 
-mstar = variables[0]
-mbh1 = variables[1]
-mbh2 = variables[2]
-aout = variables[3]
-eout = variables[4]
-ain = variables[5]
-ein = variables[6]
+    with open('initial_conditions.txt', 'r') as file:
+        for line in file:
+            #line = [int(line.strip()) for line in file if line.strip()]
+            if not line.strip() or line.startswith("#"):
+                continue
+            
+            # Split at the first '=' sign
+            key, value = line.split(" = ", 1)
+        
+            # Strip whitespace and save to dictionary
+            initial_conditions[key.strip()] = int(value.strip())
 
-qout = mstar / (mbh1 + mbh2)
+    return initial_conditions
 
-if qout < 1:
-    rmin = 0.425 * aout * (1 - eout)*((qout)*(1+qout))
-else:
-    rmin = 0.425 * aout * (1 - eout)*((1/qout)*(1+1/qout))
+def calculate_rmin(mstar, mbh1, mbh2, aout, eout):
+    """
+    Docstring here
+    """
 
-aapo = ain * (1 + ein)
+    qout = mstar / (mbh1 + mbh2)    
 
-if aapo > rmin:
-    print(f"{aapo:.2f} Rsun is greater than {rmin:.2f} Rsun")
-    print("Ballistic accretion will occur in this system.")
+    if qout < 1:
+        rmin = 0.425 * aout * (1 - eout)*((qout)*(1+qout))
+    else:
+        rmin = 0.425 * aout * (1 - eout)*((1/qout)*(1+1/qout))
 
-if rmin > aapo:
-    print(f"{aapo:.2f} Rsun is less than {rmin:.2f} Rsun")
-    print("A circumbinary disk will form in this system.")
+    return rmin
+
+def calculate_aapo(ain, ein, ain_crit, rmin):
+    """
+    Docstring here
+    """
+    if not ain:
+        print("Calculating critical separation required for ballistic accretion...")
+        ain_crit = rmin + 1
+    else:
+        aapo = ain * (1 + ein)
+    return aapo, ain_crit
+
+def determine_accretion_type(aapo, rmin):
+    """
+    
+    """
+
+    if aapo > rmin:
+        print(f"{aapo:.2f} Rsun is greater than {rmin:.2f} Rsun")
+        print("Ballistic accretion will occur in this system.")
+
+    if rmin > aapo:
+        print(f"{aapo:.2f} Rsun is less than {rmin:.2f} Rsun")
+        print("A circumbinary disk will form in this system.")
+
+def interactive_plot():
+    """
+    
+    """
 
 #acirc = (aout*(0.5 - 0.0986*np.log(qout))**4)*(1+qout)
 #print(acirc)
@@ -60,10 +95,6 @@ if rmin > aapo:
 
 
 # eventually add plot with projected accretion path
-# use more robust calculations with modules and functions
-# calculate the critical value for BA accretion
-
-#given that aapo has to be greater than rmin, solve for critical ain based on this assumption.
 #add variable names in example initial conditions file.
 #treat masses as objects and make code class based?
 #make interactive visualization with sliders
