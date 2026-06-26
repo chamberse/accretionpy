@@ -1,5 +1,16 @@
-"""this code uses user input and Eq 1 from Kummer (2025) to determine what
- kind of BBH accretion will occur in a given system."""
+"""
+This code takes in user input in the form of an 'initial_conditions.txt' document and 
+uses Eq 1 from Kummer et al. (2025):
+    https://www.aanda.org/articles/aa/full_html/2025/01/aa52108-24/aa52108-24.html
+to determine if a BBH in a three-body system will exhibit 'ballistic' accretion (BA) or 
+accretion through a circumbinary disk (CBD).
+
+Input should consist of an 'initial_conditions.txt' file with variables listed vertically, 
+located in the same directory as this file. 
+
+The output is comprised of a given rmin value that is the minimum distance (in Rsun) at which 
+the mass stream can approach the accreting binary. 
+"""
 
 import numpy as np
 
@@ -16,31 +27,21 @@ eout = variables[4]
 ain = variables[5]
 ein = variables[6]
 
-#unit conversions
-#mstar = mstari * 1.989*10**30
-#mbh1 = mbh1i * 1.989*10**30
-#mbh2 = mbh2i * 1.989*10**30
-#aout = aouti * 6.957*10**8
-#ain = aini * 6.957*10**8
-
 qout = mstar / (mbh1 + mbh2)
 
-print(qout)
 if qout < 1:
     rmin = 0.425 * aout * (1 - eout)*((qout)*(1+qout))
 else:
     rmin = 0.425 * aout * (1 - eout)*((1/qout)*(1+1/qout))
 
-print(rmin)
-
 aapo = ain * (1 + ein)
 
 if aapo > rmin:
-    print(f"{aapo:.2f} is greater than {rmin:.2f}")
+    print(f"{aapo:.2f} Rsun is greater than {rmin:.2f} Rsun")
     print("Ballistic accretion will occur in this system.")
 
 if rmin > aapo:
-    print(f"{aapo:.2f} is less than {rmin:.2f}")
+    print(f"{aapo:.2f} Rsun is less than {rmin:.2f} Rsun")
     print("A circumbinary disk will form in this system.")
 
 #acirc = (aout*(0.5 - 0.0986*np.log(qout))**4)*(1+qout)
@@ -61,5 +62,11 @@ if rmin > aapo:
 # eventually add plot with projected accretion path
 # use more robust calculations with modules and functions
 # calculate the critical value for BA accretion
+
+#given that aapo has to be greater than rmin, solve for critical ain based on this assumption.
+#add variable names in example initial conditions file.
+#treat masses as objects and make code class based?
+#make interactive visualization with sliders
+
 
 
