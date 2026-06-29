@@ -1,0 +1,11 @@
+.. _user_input:
+
+User Input
+==================
+
+To specify your initial conditions for a given system, open the initial_conditions.txt file in the text editor of your choice.
+Figure 1 shows what each variable represents.
+
+
+.. automodule:: user_input
+    :members:

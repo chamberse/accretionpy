@@ -1,0 +1,6 @@
+.. figure:: /_static/figure1.png
+    :alt: Visual depiction of each system variable.
+    :align: center
+    :width: 80%
+
+    Visualization of the definition of each variable used in the accretionpy calculations.
