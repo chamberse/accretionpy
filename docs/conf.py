@@ -14,7 +14,7 @@ import sphinx_rtd_theme
 project = 'accretionpy'
 copyright = '2026, Emma Chambers'
 author = 'Emma Chambers'
-release = '0.1.0'
+release = '0.1.1'
 root_doc = 'index'
 
 # -- General configuration ---------------------------------------------------
