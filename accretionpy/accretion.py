@@ -17,7 +17,8 @@ import matplotlib.pyplot as plt
 
 def read_file():    
     """
-    Docstring here
+    Read in .txt file and read in user input to initial_conditions dictionary. 
+    Strip the white space from the file and convert the inputs to floats.
     """
     initial_conditions = {}
 
@@ -36,6 +37,11 @@ def read_file():
     return initial_conditions
 
 def read_variables(initial_conditions):
+    """
+    Import variables and their names from the dictionary.
+
+    Since ain is optional, add the None option to it.
+    """
     mstar = initial_conditions['mstar']
     mbh1 = initial_conditions['mbh1']
     mbh2 = initial_conditions['mbh2']
@@ -50,7 +56,10 @@ def read_variables(initial_conditions):
 
 def calculate_rmin(mstar, mbh1, mbh2, aout, eout):
     """
-    Docstring here
+    Use qout, eout, and aout to calculate the minimum distance at which the 
+    accreted mass can approach the binary.
+
+    If qout is less than 1, the inverse does not need to be taken. 
     """
 
     qout = mstar / (mbh1 + mbh2)    
@@ -64,7 +73,10 @@ def calculate_rmin(mstar, mbh1, mbh2, aout, eout):
 
 def calculate_aapo(ain, ein, rmin):
     """
-    Docstring here
+    Use ain and ein to calculate the apocenter distance of the binary. 
+    If no ain value give by the user, ain_crit will be calculated.
+    ain_crit (minimum separation to produce ballistic accretion) has to be bigger than rmin
+    so we add 1 to the value. 
     """
     if ain is None or ain == 0:
         aapo = None
@@ -77,7 +89,8 @@ def calculate_aapo(ain, ein, rmin):
 
 def determine_accretion_type(aapo, rmin, ain_crit):
     """
-    
+    Determine the type of accretion that will be produced by the initial conditions given by the user.
+    Accretion will either be ballistic or circumbinary disk. 
     """
     if aapo is None:
         print(f"The minimum inner binary separation (ain) needed to achieve ballistic accretion is {ain_crit:.2f} Rsun.")
@@ -109,20 +122,16 @@ if __name__ == "__main__":
     main()
 
 
-#acirc = (aout*(0.5 - 0.0986*np.log(qout))**4)*(1+qout)
-#print(acirc)
-#acav = 1.6*acirc
-#print(acav)
-##since acav / abin = 1.68, solve for abin
-#
-#abin = acav / 1.68
-#print(abin)
-#
+#    acirc = (aout*(0.5 - 0.0986*np.log(qout))**4)*(1+qout)
+#    print(acirc)
+#    acav = 1.6*acirc
+#    print(acav)
+#    #since acav / abin = 1.68, solve for abin
+#    abin = acav / 1.68
+#    print(abin)
 #if abin != rmin:
 #    print(f"binary sparations not equal: {abin:.2f} Rsun and {rmin} Rsun")
 #
-
-
 
 # eventually add plot with projected accretion path
 #add variable names in example initial conditions file.
