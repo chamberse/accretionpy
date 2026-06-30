@@ -3,5 +3,5 @@ mbh1 = 60
 mbh2 = 60 
 aout = 838 
 eout = 0 
-ain = 20
 ein = 0
+rstar = 177
